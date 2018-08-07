@@ -54,9 +54,7 @@ def eat(matrix):
     
     # if a value is used, reset the value to 0
     matrix[y0][x0] = 0
-    
 
-    # exit if all valid values from left, right, up, or down are zeros.
     
     # helper lists to let the rabbit move left, right, up, or down.
     dx = [-1, 1, 0, 0]
