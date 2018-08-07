@@ -28,6 +28,7 @@ def eat(matrix):
     m = len(matrix) #number of rows
     n = len(matrix[0]) #number of cols
 
+    # empty matrix
     if m == 1 and n == 0:
         return 0
     
@@ -54,7 +55,7 @@ def eat(matrix):
     # if a value is used, reset the value to 0
     matrix[y0][x0] = 0
     
-    # check if left, right, up, or down, and it's valid if it doesn't exceed index
+
     # exit if all valid values from left, right, up, or down are zeros.
     
     # helper lists to let the rabbit move left, right, up, or down.
@@ -65,15 +66,17 @@ def eat(matrix):
         temp = 0
         for i in range(4):
             y_new, x_new = (y0 + dy[i]), (x0 + dx[i])
+            # check if left, right, up, or down, and it's valid if it doesn't exceed index
             # get the max number among valid left, right, up, or down neighbors
             if x_new >= 0 and x_new < n and y_new >= 0 and y_new < m:
                 if matrix[y_new][x_new] > temp:
                     temp = matrix[y_new][x_new]
                     y_max, x_max = y_new, x_new
-        # if no adjacent cells have carrorts
+        # exit if all valid values from left, right, up, or down are zeros.
         if temp == 0:
             return carrots
         else:
+            # increase total carrots by the number of carrots eaten
             carrots += temp
             # reset the spot that rabbit has eaten the carrots to 0
             matrix[y_max][x_max] = 0
